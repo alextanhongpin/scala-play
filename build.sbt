@@ -18,4 +18,12 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "4.0.2
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)
 
+// Enable bash for alpine docker build.
+/* enablePlugins(AshScriptPlugin) */
+
+/* dockerBaseImage       := "openjdk:jre-alpine" */
+dockerBaseImage       := "openjdk:jre"
 /* mainClass in Compile := Some("com.alextanhongpin.QuickstartServer") */
+
+dockerExposedPorts ++= Seq(9000, 9001)
+dockerExposedUdpPorts += 4444
